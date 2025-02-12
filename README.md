@@ -1,8 +1,47 @@
-# Practical 15 (week 8, practical 1): Working with Data
+# Week 7, Practical 1: Working with Data
 
-The aim of this practical is to familiarize yourself with JavaScript objects and classes. This practical contains three exercises, which draw quite heavily on your existing programming knowledge from prior modules and your knowledge of JavaScript from Week 7. If you haven't completed the Week 7 practicals yet, finish those activities before attempting these exercises.
+The aim of this practical is to familiarize yourself with JavaScript object literals and refresh your memory of JavaScript classes. 
 
-## Exercise 1: Changing Themes
+Stage 1 is quick and easy. Stage 2, however, is much more challenging and draws heavily on your existing programming knowledge from prior modules. 
+
+## Stage 1: Object literals and constructor functions
+This stage is basic and focuses on the syntax of creating objects and classes. If you're comfortable with the syntax, jump ahead to stage 2, which is intended to stretch your JavaScript skills.
+
+### Exercise 1.1: Representing an address as an object literal
+Create an HTML file but don't put any content in it. Create a JavaScript file and link it to your HTML file by adding a `<script>` element at the end of the `<body>` element. 
+
+A typical UK house address has:
+- A building number
+- A street name
+- A town or city
+- A postcode
+
+Note: Some addresses have other details (like flat numbers, building names) but ignore those to keep things simple.
+
+In your JavaScript file, represent 3 different UK addresses as object literals. Use addresses you know or make them up. 
+
+Use `console.log()` to print each address to the browser console. Click the arrow next to each printed object to inspect its properties.
+
+Also make sure you know how to access individual properties of an address e.g. the postcode.
+
+### Exercise 1.2: Using an object constructor function
+Continue working in the same file. Write your code for this exercise below the existing code (don't delete your work).
+
+Design an object constructor function that will make it easier to create address objects. 
+
+Try using the constructor function to create the same addresses you used in the previous exercise. Again, print them to the console and make sure you know how to access their properties.
+
+### Exercise 1.3: Writing a class
+Continue working in the same file. Write your code for this exercise below the existing code (don't delete your work).
+
+This time, create a class to represent address objects. Your class will need a different name than the function in the last exercise. 
+
+Use your class to create the same addresses you used in the previous exercise. Again, print them to the console and make sure you know how to access their properties.
+
+## Stage 2: Working with data and form inputs
+This stage is hard! It will likely take you more time than we have in practical. At a minimum, aim to complete 2.1. 
+
+### Exercise 2.1: Changing Themes
 Web applications sometimes allow users to change themes, where a theme is a preferred colour scheme, fonts etc. For this exercise, you will write some JavaScript to enable a user to select from a collection of pre-defined themes. Watch the video illustrating the behaviour before beginning. The video is in the video-output folder in this repo.
 
 Create a simple webpage that has some filler text e.g. a heading and a few paragraphs of [lorem ipsum](https://loremipsum.io/generator/).
@@ -11,16 +50,29 @@ Create a JavaScript file and link it to your HTML file by adding a `<script>` el
 
 Using either object literals or an object constructor function, create objects that store properties for 3-5 different themes. At a minimum, each theme should have properties storing a background colour, a text colour, and a font family. 
 
+Here is a basic example of what an object might store:
+
+```
+let theme1 = {
+    background: '#000000',
+    textColour: '#ffffff',
+    font: 'open-sans'
+}
+```
+
 Add radio buttons that allow the user to switch between your themes. When a new theme is selected, use JavaScript to select the appropriate element or elements and apply the styles from the theme.
 
+For a reminder of radio buttons, look back at week 4, lecture and practical 2. For a reminder of how to change CSS style properties, look at week 4, lecture 1 (very last slide) and the sample code from that week. 
+
 **Object literal or object constructor function?**
+
 Either option works. Here are some points to think about:
 - Object constructor functions save you from repeating code. If all your themes store information about the same properties, an object constructor function is the better choice.
 - If each object will have completely different properties, then an object literal would be appropriate as using a constructor function won't provide any efficiency.
 - If your themes share some properties but also have some differences, an object constructor function may still be the best choice. Remember that JS allows you to add properties to individual objects after they are created.
 
-## Exercise 2: Maths Tutor 
-Run maths-tutor/index.html using Live Preview. Then, watch the video of the completed application that was included in the materials you downloaded for this practical. 
+### Exercise 2.2: Maths Tutor 
+Run maths-tutor/index.html using Live Preview. Then, watch the video of the completed application, which you can find in the output-videos folder. 
 
 The purpose of this webpage is to help school pupils to practice their addition, subtraction, multiplication, and division. At the moment, you're seeing placeholder text and behaviour but, if you take a look at main.js, you'll see that a lot of the JS has already been written. The only thing that's missing is a `Question` object (or class) that contains information and behaviour for a randomly generated maths question. 
 
@@ -42,7 +94,7 @@ firstNumber operator secondNumber
 
 The JavaScript syntax needed for this exercise is quite simple, but you will need to apply your coding knowledge from previous modules to get this to work!
 
-### Suggested steps
+#### Suggested steps
 
 1.	Create a basic object constructor function or class called `Question`. Don't worry about properties for now. Add the required methods and make sure they return *something* of the right type. The returned values don't have to be correct yet e.g. `getText()` can just return any string, rather than a random question. Check that the live preview shows the question text returned by `getText()` and that clicking "Check Answer" causes the string returned by `getFeedbackForAnswer()` to display. 
 
@@ -60,25 +112,25 @@ The JavaScript syntax needed for this exercise is quite simple, but you will nee
 
 8.	Finally, update `getFeedbackForAnswer(answer)` so that it returns randomly selected appropriate feedback depending on the value returned by `checkAnswer(answer)`. Consider using two arrays of feedback messages—one for correct answers and one for incorrect answers—and using your solution to step 2 to pick a random index in the appropriate array.
 
-## Exercise 3: Deck of Cards
+### Exercise 2.3: Deck of Cards
 
 When working with collections of objects in front end development, it is common to perform operations like sorting and filtering based on object properties. For example, when shopping online, you can often sort a category of products by price, or filter by product characteristics such as size or brand. For this exercise, you will write custom sorting and filter functions to organise an array of custom objects (playing cards) by certain properties (value and suit). There is a video showing a completed application in the materials downloaded for this practical.
 
-Create a basic HTML file (follow the usual template but don't add any elements to the `<body>` yet), an empty CSS file, and an empty JS file. Connect the CSS and JS files to your HTML as usual.
+**Create a basic HTML file (follow the usual template but don't add any elements to the `<body>` yet), an empty CSS file, and an empty JS file.** Connect the CSS and JS files to your HTML as usual.
 
 In the materials for this practical, there is a folder called images, which contains images of all the playing cards in a standard deck. Move this folder into the same folder as the HTML, CSS, and JS files you just created.
 
-In your JavaScript file, create an object that represents a single playing card. It should have three properties—the value (the number on the card, or equivalent value in the case of "face" cards); the suit (clubs, diamonds, hearts, or spades); and the path to the associated image file. You can use any approach to creating the object. I chose to use a class because I wanted to keep the properties private. The card image files follow a naming convention, so your object can automatically set the value of its image property using its value and suit properties. 
+**In your JavaScript file, create an object that represents a single playing card.** It should have three properties—the value (the number on the card, or equivalent value in the case of "face" cards); the suit (clubs, diamonds, hearts, or spades); and the path to the associated image file. You can use any approach to creating the object. I chose to use a class because I wanted to keep the properties private. The card image files follow a naming convention, so your object can automatically set the value of its image property using its value and suit properties. 
 
-Next, create an array of card objects that represents a standard 52-card deck. Try to do this as simply as possible i.e., use a for loop, don't create each card manually. 
+**Next, create an array of card objects that represents a standard 52-card deck.** Try to do this as simply as possible i.e., use a for loop, don't create each card manually. 
 
-Check that your deck has been created correctly by using JavaScript to iterate through the array and display them in the HTML. A CSS grid approach to the layout is recommended so you can see the full deck at once. It is recommended that you put this code into a function as you will need to display the deck repeatedly in the finished application.
+Check that your deck has been created correctly by using JavaScript to **iterate through the array and display them in the HTML.** A CSS grid approach to the layout is recommended so you can see the full deck at once. It is recommended that you put this code into a function as you will need to display the deck repeatedly in the finished application.
 
-Somewhere on the page, add three buttons that will eventually allow you to shuffle the deck, sort by value, and sort by suit. Also add a `<select>` element that will allow you to filter the deck by suit.
+Somewhere on the page, **add three buttons that will eventually allow you to shuffle the deck, sort by value, and sort by suit. Also add a `<select>` element that will allow you to filter the deck by suit.**
 
-Create a shuffle function that is called when the Shuffle button is clicked. This function should shuffle the array that represents the deck, then display the updated deck. JavaScript doesn't provide built-in array shuffling, but there is a simple algorithm you can implement—the Fisher-Yates algorithm. Try Googling "JavaScript array shuffle" and use the resources you find to implement your shuffle function.
+**Create a shuffle function that is called when the Shuffle button is clicked.** This function should shuffle the array that represents the deck, then display the updated deck. JavaScript doesn't provide built-in array shuffling, but there is a simple algorithm you can implement—the Fisher-Yates algorithm. Try Googling "JavaScript array shuffle" and use the resources you find to implement your shuffle function.
 
-Create two sorting functions that are called when the relevant button is clicked, and display the sorted deck. JavaScript does provide an array sorting method, [`arr.sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort), but it won't work for custom objects unless you pass it a custom function that explains how to sort the objects. Custom sorting functions always take two parameters and return:
+**Create two sorting functions that are called when the relevant button is clicked, and display the sorted deck.** JavaScript does provide an array sorting method, [`arr.sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort), but it won't work for custom objects unless you pass it a custom function that explains how to sort the objects. Custom sorting functions always take two parameters and return:
 
 - -1 if the first parameter is less than the second; 
 - 0 if the two parameters are the equal;
@@ -109,4 +161,4 @@ Notice that no parameters have been passed to `sortByCustomProperty`—the sort 
 
 Use the above example to help you create custom sort functions for your deck.
 
-Finally, create a function to filter the deck by suit (include an option to show all cards) when the selected option in the `<select>` changes. You can use a for loop to implement this, or you can explore using the [array `filter` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) (recommended).
+**Finally, create a function to filter the deck by suit (include an option to show all cards) when the selected option in the `<select>` changes.** You can use a for loop to implement this, or you can explore using the [array `filter` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) (recommended).
